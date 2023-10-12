@@ -1,0 +1,6 @@
+{
+    "python.autoReload.runOnChange": true,
+    "python.autoReload.runOnSave": true,
+    "python.autoReload.restartDelay": 500
+  }
+  

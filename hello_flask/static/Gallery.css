@@ -1,0 +1,24 @@
+.navigation{
+    padding: 25px 0px;
+}
+.navigation a{
+    margin-right: 5px;
+    text-decoration: none;
+    border: 1px solid #ccc;
+    padding: 10px 25px;
+    border-radius: 50px;
+    color: #3b71ca;
+}
+.navigation a.active{
+    background-color: #3b71ca;
+    border-color: #3b71ca;
+    color: #fff;
+}
+.ImageContainer div{
+    display: inline-block;
+}
+.Galleryimg{
+    margin: 5px;
+    width: 400px;
+    height: 250px;
+}

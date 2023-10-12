@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='mdb.min.css') }}"/>
+     <link rel="stylesheet" href="{{ url_for('static', filename='styleDetail.css') }}"/>
+    <!-- Custom styles -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <!-- Jumbotron -->
+    <div class="p-3 text-center bg-white border-bottom">
+      <div class="container">
+        <div class="row gy-3">
+          <!-- Left elements -->
+          <div class="col-lg-2 col-sm-4 col-4">
+            <a href="{{ url_for('indexHome') }}"  class="float-start">
+              <img src="{{ url_for('static', filename='logo3.png') }}" height="50" />
+            </a>
+          </div>
+          <!-- Left elements -->
+  
+  
+          <!-- Center elements -->
+          <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+            <div class="d-flex float-end">
+              
+              {% if idUser is not none %}
+              <div class="dropdown">
+                <button style="height: 40px; "class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-user m-1 me-md-2" aria-hidden="true"></i>{{usernameUser}}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="{{ url_for('profile') }}">Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('signout') }}">Sign out</a></li>
+                </ul>
+              </div>
+              {% else %}
+              <div class="dropdown">
+                <button style="height: 40px; "class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-user m-1 me-md-2" aria-hidden="true"></i>Account
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="{{ url_for('login') }}">Sign in</a></li>
+                </ul>
+              </div>
+              {% endif %}
+              
+            </div>
+            
+          </div>
+          
+          <!-- Center elements -->
+  
+          <!-- Right elements -->
+          <div class="col-lg-5 col-md-12 col-12">
+          
+          </div>
+          <!-- Right elements -->
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <!-- Container wrapper -->
+      <div class="container justify-content-center justify-content-md-between">
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+  
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="dropdown">
+              <a class="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+            
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="{{ url_for('indexHome') }}">Telephony</a></li>
+         
+              </ul>
+            </div>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('contact') }}">Contact Us</a>
+            </li>
+          
+            <!-- Navbar dropdown -->
+           
+          <!-- Left links -->
+        </div>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+  </header>
+
+<!-- content -->
+<section class="py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+        <div class="border rounded-4 mb-3 d-flex justify-content-center">
+          <a data-fslightbox="mygalley" class="rounded-4" target="_blank" data-type="image" href="">
+            <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="{{ url_for('static', filename=data[6]) }}" />
+          </a>
+        </div>
+        
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6">
+        <div class="ps-lg-3">
+          <h4 class="title text-dark">
+            {{data[1]}} {{data[2]}} {{data[4]}} GO {{data[5]}}G RAM
+          </h4>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">
+             
+              <span class="ms-1">
+                Rate: {{scoreF}}
+              </span><br>
+              <span class="ms-1">
+                Number of Validation: {{nbValidation}}
+              </span>
+            </div>
+            
+          </div>
+
+          <div class="mb-3">
+            <span class="h5">{{data[3]}} DT</span>
+            
+          </div>
+
+          
+
+          <div class="row">
+
+            <dt class="col-3">Color</dt>
+            <dd class="col-9">{{data[2]}}</dd>
+
+            <dt class="col-3">Storage</dt>
+            <dd class="col-9">{{data[4]}} GO</dd>
+
+            <dt class="col-3">RAM</dt>
+            <dd class="col-9">{{data[5]}} GO</dd>
+          </div>
+
+          <hr />
+
+          <div class="row mb-4">
+          
+            <!-- col.// -->
+            <div class="col-md-4 col-6 mb-3">
+             
+                
+              </div>
+            </div>
+          </div>
+        
+          {% if idUser is not none %}
+          <form  method="POST" action="{{ url_for('validateD') }}">
+            <input type="text" hidden value="{{data[0]}} " name="id">
+            <button class="btn btn-primary shadow-0" type="submit">Validate</button>
+          </form>
+          {% else %}
+    
+         {% endif %}
+         
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+<!-- content -->
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start text-muted bg-primary mt-3">
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start pt-4 pb-4">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-12 col-lg-3 col-sm-12 mb-2">
+          <!-- Content -->
+          <a href="{{ url_for('indexHome') }}" target="_blank" class="text-white h2">
+            HSMW
+          </a>
+          <p class="mt-1 text-white">
+            © 2023 Copyright: HSMW
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 col-sm-4 col-lg-2">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-2">
+            Store
+          </h6>
+          <ul class="list-unstyled mb-4">
+            <li><a class="text-white-50" href="{{ url_for('contact') }}">Contact Us</a></li>
+            <li><a class="text-white-50" href="{{ url_for('indexHome') }}">Our Product</a></li>            
+          </ul>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 col-sm-4 col-lg-2">
+          <!-- Links -->
+          
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-6 col-sm-4 col-lg-2">
+          <!-- Links -->
+          
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-12 col-sm-12 col-lg-3">
+          <!-- Links -->
+          <h6 class="text-uppercase text-white fw-bold mb-2">Newsletter</h6>
+          <p class="text-white">Stay in touch with latest updates about our products and offers</p>
+          <div class="input-group mb-3">
+            <button class="btn btn-light border shadow-0" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+              <a href="{{ url_for('register') }}">Join Us</a> 
+            </button>
+          </div>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <div class="">
+    <div class="container">
+      <div class="d-flex justify-content-between py-4 border-top">
+        <!--- payment --->
+        <div>
+          
+        </div>
+        <!--- payment --->
+
+        <!--- language selector --->
+        <div class="dropdown dropup">
+          <a class="dropdown-toggle text-white" href="#" id="Dropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false"></a>
+
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Dropdown">
+            <li>
+              
+            </li>
+           
+          </ul>
+        </div>
+        <!--- language selector --->
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer -->
+
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
+
