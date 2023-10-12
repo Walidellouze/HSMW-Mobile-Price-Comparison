@@ -11,4 +11,4 @@ Voici les étapes à suivre pour installer les dépendances nécessaires :
 -	Installer Flask MySQL : Dans l'environnement virtuel, utilisez la commande " pip install flask-mysqldb"  pour installer Flask MySQL.
 -	Installer Flask Mail : Dans l'environnement virtuel, utilisez la commande "pip install Flask-Mail" pour installer Flask Mail.
 -	Installer MySql Connector : Dans l'environnement virtuel, utilisez la commande "pip install mysql-connector-python" pour installer MySql Connector.
--	
+  
